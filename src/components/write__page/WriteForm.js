@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import jwt, { decode } from "jsonwebtoken";
 import axios from "axios";
-import firebase from "../firebase.js";
+import firebase from "./firebase/firebase";
 import { useHistory } from "react-router-dom";
 
 export default function WriteForm() {
