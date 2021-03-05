@@ -1,0 +1,1 @@
+Booknary- isWriter ? Write : Read
