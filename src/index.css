@@ -306,12 +306,15 @@
 
   .book-card {
     text-decoration: none;
+    border: 1px solid #bbbbbb;
+    border-radius: 0.5rem;
   }
 
   .item_img {
     border-radius: 5px 5px 0 0;
     object-fit: cover;
     width: 100%;
+    min-height: 150px;
     max-height: 150px;
     vertical-align: center;
   }
@@ -417,7 +420,7 @@
 
   .webviewer {
     width: 60%;
-    height: 60vh;
+    height: 75vh;
     margin: 0 auto;
   }
 

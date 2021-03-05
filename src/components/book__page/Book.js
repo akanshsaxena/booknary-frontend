@@ -119,18 +119,20 @@ export default function Book(props) {
         </>
       ) : (
         <>
-          <button
-            onClick={(e) => {
-              e.preventDefault();
-              setIsClicked(false);
-            }}
-            className="book_page_show_book"
-          >
-            Go Back
-          </button>
+          <div style={{ display: "flex", justifyContent: "space-between" }}>
+            <button
+              style={{ alignSelf: "flex-start", marginLeft: "10px" }}
+              onClick={(e) => {
+                e.preventDefault();
+                setIsClicked(false);
+              }}
+              className="btn_like"
+            >
+              {`  < Go Back`}
+            </button>
 
-          <ViewBook pdfLink={bookInfo.pdfLink} />
-          <p>{bookInfo.pdfLink}</p>
+            <ViewBook pdfLink={bookInfo.pdfLink} />
+          </div>
         </>
       )}
     </div>

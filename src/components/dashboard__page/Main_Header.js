@@ -15,7 +15,7 @@ export default function Main_Header() {
       <div className="main_header">
         <div id="main-header-container">
           <NavLink className="link" to="/dashboard">
-            <h1> Bookshelf </h1>
+            <h1> Booknary </h1>
           </NavLink>
           <div id="search">
             <input
