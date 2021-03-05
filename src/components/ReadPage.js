@@ -8,7 +8,7 @@ export default function ReadPage() {
   return (
     <>
       <Main_Header />
-      <Book bookId={bookId} />
+      <Book bookId={bookId} />{" "}
     </>
   );
 }
