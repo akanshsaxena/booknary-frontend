@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import jwt, { decode } from "jsonwebtoken";
 import axios from "axios";
-//import { useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import firebase from "firebase";
 export default function WriteForm() {
   const [title, setTitle] = useState("");
