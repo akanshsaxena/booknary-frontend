@@ -416,8 +416,9 @@
   }
 
   .webviewer {
-    width: 70%;
-    height: 80vh;
+    width: 60%;
+    height: 60vh;
+    margin: 0 auto;
   }
 
   /*Write page*/

@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from "react";
 import jwt, { decode } from "jsonwebtoken";
 import axios from "axios";
-//import firebase from "./firebase";
+import firebase from "../firebase.js";
 import { useHistory } from "react-router-dom";
-import firebase from "firebase";
 
 export default function WriteForm() {
   const [title, setTitle] = useState("");
@@ -23,17 +22,6 @@ export default function WriteForm() {
   const [uploadPer, setUploadPer] = useState(0);
   const [uploadSuccessful, setUploadSucessful] = useState(false);
   const history = useHistory();
-  var config = {
-    apiKey: "AIzaSyAeAI9H2e54dGWcEIl605L6RIL1jorcqaI",
-    authDomain: "bookshelf-a09a5.firebaseapp.com",
-    databaseURL: "https://bookshelf-a09a5.firebaseio.com",
-    projectId: "bookshelf-a09a5",
-    storageBucket: "bookshelf-a09a5.appspot.com",
-    messagingSenderId: "863711295397",
-    appId: "1:863711295397:web:d5e10ba963dfd250849a4c",
-  };
-  // Initialize Firebase
-  firebase.initializeApp(config);
 
   const handleChange = (event) => {
     if (event.target.name === "title") {
