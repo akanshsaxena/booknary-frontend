@@ -1,6 +1,5 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
-import Swiper from "swiper";
 import { NavLink } from "react-router-dom";
 export default function Section(props) {
   const { authorId, bookId, searchText, heading } = props;
@@ -27,23 +26,13 @@ export default function Section(props) {
     getBooks();
   }, [category]);
 
-  var swiper = new Swiper(".swiper-container", {
-    slidesPerView: 4,
-    spaceBetween: 30,
-    freeMode: true,
-    pagination: {
-      el: ".swiper-pagination",
-      clickable: true,
-    },
-  });
-
   return (
     <div className="section">
       <div className="filter-container">
         <h4 style={{ padding: "5px" }}>Filter By</h4>
-        <div class="filter-inner-container">
+        <div className="filter-inner-container">
           <div id="category">
-            <label class="label">
+            <label className="label">
               Category <br />
               <select name="category" value={category} onChange={handleChange}>
                 <option value="all"> All </option>
@@ -77,7 +66,7 @@ export default function Section(props) {
             </label>
           </div>
           <div id="language">
-            <label class="label">
+            <label className="label">
               Language <br />
               <select name="language" value={language} onChange={handleChange}>
                 <option value="All"> All </option>

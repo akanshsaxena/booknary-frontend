@@ -1,9 +1,7 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { PDFObject } from "react-pdfobject";
 import "font-awesome/css/font-awesome.min.css";
-import { Viewer } from "@react-pdf-viewer/core";
-import { Worker } from "@react-pdf-viewer/core";
 import ViewBook from "./ViewBook";
 
 import "@react-pdf-viewer/core/lib/styles/index.css";
