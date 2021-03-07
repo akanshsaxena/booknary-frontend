@@ -10,7 +10,7 @@ export default function Search() {
   useEffect(() => {
     const getVideos = async () => {
       const response = await axios.get(
-        `https://booknary.herokuapp.com/api/books/get?category=null&language=null&authorId=null&bookId=null&searchText=${search}`
+        `https://booknary-backend.herokuapp.com/api/books/get?category=null&language=null&authorId=null&bookId=null&searchText=${search}`
       );
       const data = await response.data;
       setBookData(data);
