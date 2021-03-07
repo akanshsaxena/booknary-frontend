@@ -20,7 +20,7 @@ export default function Section(props) {
     const getBooks = async () => {
       setNoBooks(false);
       const response = await axios.get(
-        `https://booknary.herokuapp.com/api/books/get?category=${category}&language=${language}&authorId=&bookId=&searchText=`
+        `https://booknary.herokuapp.com/api/books/get?category=${category}&language=${language}&authorId=null&bookId=null&searchText=null`
       );
       const data = await response.data;
       setBooks(data);

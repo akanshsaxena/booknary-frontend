@@ -1,13 +1,20 @@
-import React, { useState, useEffect } from "react";
+import React, {
+  useState,
+  useEffect
+} from "react";
 import axios from "axios";
-import { PDFObject } from "react-pdfobject";
+import {
+  PDFObject
+} from "react-pdfobject";
 import "font-awesome/css/font-awesome.min.css";
 import ViewBook from "./ViewBook";
 
 import "@react-pdf-viewer/core/lib/styles/index.css";
 
 export default function Book(props) {
-  const { bookId } = props;
+  const {
+    bookId
+  } = props;
   const [likes, setLikes] = useState(0);
   const [isClicked, setIsClicked] = useState(false);
   const [bookInfo, setBookInfo] = useState({
@@ -27,7 +34,7 @@ export default function Book(props) {
   useEffect(() => {
     const getBookInfo = async () => {
       const response = await axios.get(
-        `https://booknary-backend.herokuapp.com/api/books/get?category=all&authorId=null&bookId=${bookId}&searchText=null`
+        `https://booknary-backend.herokuapp.com/api/books/get?category=null&language=null&authorId=null&bookId=${bookId}&searchText=null`
       );
       const data = await response.data;
       setBookInfo({
@@ -56,8 +63,7 @@ export default function Book(props) {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "https://booknary-backend.herokuapp.com/api/books/votes",
-        {
+        "https://booknary-backend.herokuapp.com/api/books/votes", {
           bookId: bookInfo._id,
         }
       );
@@ -69,73 +75,132 @@ export default function Book(props) {
     }
   };
   const BookDesc = () => {
-    return (
-      <div className="book_page_desc_container">
-        <div className="book__details__container">
-          <img src={bookInfo.thumbnailImg} />
-          <button
-            onClick={(e) => {
-              e.preventDefault();
-              setIsClicked(true);
-            }}
-            className="book_page_show_book btn"
-          >
-            Start Reading
-          </button>
-        </div>
-        <div className="book_page_container1">
-          <h2 style={{ fontSize: "2rem" }}>{bookInfo.title}</h2>
-          <h5 style={{ fontSize: "1.5rem", color: "grey" }}>
-            By: {bookInfo.author}
-          </h5>
-          <button className="btn_like" onClick={increaseLike}>
-            {likes === 0 && "Be the first one to "}Like
-          </button>
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "space-between",
-              margin: "10px 0",
-            }}
-          >
-            <p>{likes} like(s)</p>
+    return ( <
+      div className = "book_page_desc_container" >
+      <
+      div className = "book__details__container" >
+      <
+      img src = {
+        bookInfo.thumbnailImg
+      }
+      /> <
+      button onClick = {
+        (e) => {
+          e.preventDefault();
+          setIsClicked(true);
+        }
+      }
+      className = "book_page_show_book btn" >
+      Start Reading <
+      /button> <
+      /div> <
+      div className = "book_page_container1" >
+      <
+      h2 style = {
+        {
+          fontSize: "2rem"
+        }
+      } > {
+        bookInfo.title
+      } < /h2> <
+      h5 style = {
+        {
+          fontSize: "1.5rem",
+          color: "grey"
+        }
+      } >
+      By: {
+        bookInfo.author
+      } <
+      /h5> <
+      button className = "btn_like"
+      onClick = {
+        increaseLike
+      } > {
+        likes === 0 && "Be the first one to "
+      }
+      Like <
+      /button> <
+      div style = {
+        {
+          display: "flex",
+          justifyContent: "space-between",
+          margin: "10px 0",
+        }
+      } >
+      <
+      p > {
+        likes
+      }
+      like(s) < /p>
 
-            <p>{bookInfo.readTime}</p>
-          </div>
+      <
+      p > {
+        bookInfo.readTime
+      } < /p> <
+      /div>
 
-          <h3>Description</h3>
-          <h4 style={{ fontWeight: "normal", margin: "5px 0" }}>
-            {bookInfo.description}
-          </h4>
-        </div>
-      </div>
+      <
+      h3 > Description < /h3> <
+      h4 style = {
+        {
+          fontWeight: "normal",
+          margin: "5px 0"
+        }
+      } > {
+        bookInfo.description
+      } <
+      /h4> <
+      /div> <
+      /div>
     );
   };
-  return (
-    <div className="book_page_container">
-      {!isClicked ? (
-        <>
-          <BookDesc />
-        </>
-      ) : (
-        <>
-          <div style={{ display: "flex", justifyContent: "space-between" }}>
-            <button
-              style={{ alignSelf: "flex-start", marginLeft: "10px" }}
-              onClick={(e) => {
-                e.preventDefault();
-                setIsClicked(false);
-              }}
-              className="btn_like"
-            >
-              {`  < Go Back`}
-            </button>
+  return ( <
+    div className = "book_page_container" > {
+      !isClicked ? ( <
+        >
+        <
+        BookDesc / >
+        <
+        />
+      ) : ( <
+        >
+        <
+        div style = {
+          {
+            display: "flex",
+            justifyContent: "space-between"
+          }
+        } >
+        <
+        button style = {
+          {
+            alignSelf: "flex-start",
+            marginLeft: "10px"
+          }
+        }
+        onClick = {
+          (e) => {
+            e.preventDefault();
+            setIsClicked(false);
+          }
+        }
+        className = "btn_like" >
+        {
+          `  < Go Back`
+        } <
+        /button>
 
-            <ViewBook pdfLink={bookInfo.pdfLink} />
-          </div>
-        </>
-      )}
-    </div>
+        <
+        ViewBook pdfLink = {
+          bookInfo.pdfLink
+        }
+        /> <
+        /div> <
+        />
+      )
+    } <
+    /div>
   );
 }
 
