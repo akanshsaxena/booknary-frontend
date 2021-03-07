@@ -9,6 +9,7 @@ import Dashboard from "./components/Dashboard";
 import Write from "./components/Write";
 import ReadPage from "./components/ReadPage";
 import Profile from "./components/Profile";
+import SeachPage from "./SearchPage";
 
 function App() {
   const accessPage = "accessPage";
@@ -50,6 +51,9 @@ function App() {
         </Route>
         <Route exact path="/book/:bookId">
           <ReadPage />
+        </Route>
+        <Route exact path="/search/:search">
+          <SeachPage />
         </Route>
       </Switch>
     </BrowserRouter>

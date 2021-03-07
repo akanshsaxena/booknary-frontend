@@ -261,7 +261,7 @@
 
   .filter-container {
     width: 20%;
-
+    max-height: 200px;
     box-shadow: -8px 9px 6px -1px rgba(212, 212, 212, 0.75);
     -webkit-box-shadow: -8px 9px 6px -1px rgba(212, 212, 212, 0.75);
     -moz-box-shadow: -8px 9px 6px -1px rgba(212, 212, 212, 0.75);
@@ -480,17 +480,17 @@
 
   .section-container {
     margin: 0 auto;
-    background: #581845;
+    background: #f2f2f2;
     padding: 20px;
   }
 
-  .video-card-container {
+  .search-results {
     margin: 20px auto;
-    width: 90%;
+    width: 80%;
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(auto-fill, 1fr);
     grid-gap: 10px;
-    background: #ff5733;
+    background: white;
     border-radius: 10px;
     padding: 20px;
   }

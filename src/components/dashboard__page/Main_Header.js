@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 
 export default function Main_Header() {
-  const [searchedText, setSearchedText] = useState("");
+  const [search, setSearch] = useState("");
   const handleChange = (e) => {
-    setSearchedText(e.target.value);
+    setSearch(e.target.value);
   };
   const handleLogout = (e) => {
     e.preventDefault();
@@ -19,12 +19,12 @@ export default function Main_Header() {
           </NavLink>
           <div id="search">
             <input
-              value={searchedText}
+              value={search}
               onChange={handleChange}
               type="text"
               placeholder="Search a fellow writer or a book"
             />
-            <NavLink id="search-btn" to={`/search/${searchedText}`}>
+            <NavLink id="search-btn" to={`/search/${search}`}>
               {" "}
               🔎{" "}
             </NavLink>

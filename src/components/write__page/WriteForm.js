@@ -218,12 +218,12 @@ export default function WriteForm() {
               <option value="Action and Adventure">Action and adventure</option>
               <option value="Chick lit"> Chick lit </option>
               <option value="Business/economics"> Business / economics </option>
-              <option value="Children's"> Children 's </option>
+              <option value="Children's"> Children's </option>
               <option value="Chick lit"> Chick lit </option>
               <option value="Cookbook"> Cookbook </option>
               <option value="Comic book"> Comic book </option>
               <option value="Diary"> Diary </option>
-              <option value="Coming-of-age"> Coming - of -age </option>
+              <option value="Coming-of-age"> Coming-of-age </option>
               <option value="Crime"> Crime </option>
               <option value="Encyclopedia"> Encyclopedia </option>
               <option value="Drama"> Drama </option>

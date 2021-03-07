@@ -1,21 +1,26 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { NavLink } from "react-router-dom";
+import BookCard from "./BookCard";
+
 export default function Section(props) {
-  const { authorId, bookId, searchText, heading } = props;
   const [books, setBooks] = useState([]);
-  const [category, setCategory] = useState("all");
+  const [category, setCategory] = useState("All");
   const [language, setLanguage] = useState("All");
   const [noBooks, setNoBooks] = useState(true);
 
   const handleChange = (e) => {
-    setCategory(e.target.value);
+    if (e.target.name === "category") {
+      setCategory(e.target.value);
+    } else {
+      setLanguage(e.target.value);
+    }
   };
   useEffect(() => {
     const getBooks = async () => {
       setNoBooks(false);
       const response = await axios.get(
-        `https://booknary-backend.herokuapp.com/api/books/get?category=${category}&language=${language}&authorId=null&bookId=null&searchText=null`
+        `https://booknary.herokuapp.com/api/books/get?category=${category}&language=${language}&authorId=&bookId=&searchText=`
       );
       const data = await response.data;
       setBooks(data);
@@ -24,7 +29,7 @@ export default function Section(props) {
       }
     };
     getBooks();
-  }, [category]);
+  }, [category, language]);
 
   return (
     <div className="section">
@@ -35,10 +40,9 @@ export default function Section(props) {
             <label className="label">
               Category <br />
               <select name="category" value={category} onChange={handleChange}>
-                <option value="all"> All </option>
+                <option value="All"> All </option>
                 <option value="Action and Adventure">
-                  {" "}
-                  Action and adventure{" "}
+                  Action and adventure
                 </option>
                 <option value="Chick lit"> Chick lit </option>
                 <option value="Business/economics"> Business/economics </option>
@@ -83,21 +87,7 @@ export default function Section(props) {
         <div className="cards">
           {books.map((book) => (
             <NavLink className="book-card child" to={`/book/${book._id}`}>
-              <img className="item_img" src={book.thumbnailImg} />
-              <div className="item_details_container">
-                <h4 className="item_title"> {book.title} </h4>
-                <div className="item_div1">
-                  <p className="item_author"> {book.author} </p>
-                  <p className="item_category category">{book.category}</p>
-                </div>
-                <div className="item_div2">
-                  <p className="item_read_time">{book.readTime}</p>
-                  <p className="item_read_votes">
-                    {" "}
-                    {book.votes > 0 && `${book.votes} vote(s)`}
-                  </p>
-                </div>
-              </div>
+              <BookCard book={book} />
             </NavLink>
           ))}
         </div>
