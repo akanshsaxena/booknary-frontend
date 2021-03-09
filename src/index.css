@@ -774,8 +774,10 @@
 @keyframes blur {
   0% {
     opacity: 0;
+    right: -50%;
   }
   100% {
     opacity: 1;
+    right: 0;
   }
 }
