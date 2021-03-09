@@ -19,7 +19,9 @@
   margin: 0 auto;
   padding: 30px;
 }
-
+.side-menu {
+  display: none;
+}
 #logo {
   font-family: Quicksand;
   font-style: normal;
