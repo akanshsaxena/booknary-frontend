@@ -119,7 +119,10 @@ export default function Book(props) {
         </>
       ) : (
         <>
-          <div style={{ display: "flex", justifyContent: "space-between" }}>
+          <div
+            className="read_book"
+            style={{ display: "flex", justifyContent: "space-between" }}
+          >
             <button
               style={{ alignSelf: "flex-start", marginLeft: "10px" }}
               onClick={(e) => {

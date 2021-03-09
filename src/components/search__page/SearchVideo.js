@@ -30,7 +30,7 @@ export default function Search() {
           </p>
         ) : (
           <div className="search-results">
-            <div className="cards">
+            <div className="search-cards cards">
               {bookData.map((book) => (
                 <NavLink className="book-card child" to={`/book/${book._id}`}>
                   <BookCard book={book} />

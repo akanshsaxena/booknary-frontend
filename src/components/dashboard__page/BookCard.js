@@ -14,7 +14,7 @@ export default function BookCard(props) {
         <div className="item_div2">
           <p className="item_read_time">{book.readTime}</p>
           <p className="item_read_votes">
-            {book.votes > 0 && `${book.votes} vote(s)`}
+            {book.votes > 0 && `${book.votes} like(s)`}
           </p>
         </div>
       </div>
